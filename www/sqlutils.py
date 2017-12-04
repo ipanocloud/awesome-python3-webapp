@@ -29,13 +29,15 @@ def create_pool(loop, **kw):
         port=kw.get('port', 3306),
         user=kw['user'],
         password=kw['password'],
-        db=kw['db'],
+        db=kw['database'],
         charset=kw.get('charset', 'utf8'),
         autocommit=kw.get('autocommit', True),
         maxsize=kw.get('maxsize', 10),
         minsize=kw.get('minsize', 1),
         loop=loop
     )
+    logging.info('connection poo success done...')
+    return __pool
 
 
 @asyncio.coroutine
@@ -47,8 +49,8 @@ def select(sql, args, size=None):
     :param size: 查询条数
     :return:
     """
-    logging(sql, args)
-    global __pool
+    # logging.info(sql, args)
+    # global __pool
     with (yield from __pool) as conn:
         cur = yield from conn.cursor(aiomysql.DictCursor)
         yield from cur.execute(sql.replace('?', '%s'), args or ())
@@ -59,3 +61,23 @@ def select(sql, args, size=None):
         yield from cur.close()
         logging.info('rows returned: %s' % len(rs))
         return rs
+
+
+def execute(sql, args):
+    """
+    执行指定条件的sql语句
+    :param sql: sql语句
+    :param args: 参数
+    :return:
+    """
+    logging(sql)
+    with(yield from __pool) as conn:
+        try:
+            cur = yield from conn.cursor()
+            yield from cur.execute(sql.replace('?', '%s'), args)
+            affected = cur.rowcount
+            yield from cur.close()
+        except BaseException as e:
+            logging('sql-execute语句:' + e)
+            raise
+    return affected
