@@ -9,7 +9,8 @@
 
 import unittest
 import asyncio
-from www import sqlutils
+from conf import loadconfig
+from support.utils import sqlutils
 
 
 class LearnSql(unittest.TestCase):
@@ -35,8 +36,11 @@ class LearnSql(unittest.TestCase):
         # self.loop.run_until_complete(
         #     asyncio.wait([sqlutils.create_pool(self.loop, user='root', password='root', database='jt_cloudstitch'),
         #                   sqlutils.select('select * from USER', '', 20)]))
+        yamlconfig = loadconfig.load_settings()
+        dbconfig = yamlconfig['db']
         pool = self.loop.run_until_complete(
-            sqlutils.create_pool(self.loop, user='root', password='root', database='jt_cloudstitch'))
+            sqlutils.create_pool(self.loop, host=dbconfig['host'], user='root', password='root',
+                                 database='jt_cloudstitch'))
         print(pool)
         print('test_createpool end....\r\n')
 

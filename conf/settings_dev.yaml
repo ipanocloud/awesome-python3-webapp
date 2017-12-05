@@ -1,0 +1,8 @@
+#db链接信息
+db:
+  host: localhost
+  port: 3307
+  user: root
+  password: root
+  database: jt_cloudstitch
+dbUrl: mysql+mysqlconnector://root:root@localhost:3306/jt_cloudstitch
