@@ -18,7 +18,7 @@ class PersonDaoTest(unittest.TestCase):
     def test_add(self):
         print('this is test_add...')
         session = DBSession()
-        new_user = Person(name='gudongyu', sex='女')
+        new_user = Person(name='caobin', sex='女')
         session.add(new_user)
         session.commit()
         session.close()
