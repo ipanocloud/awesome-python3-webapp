@@ -4,7 +4,7 @@
 # @author  : zhoubin
 # @contact : zhoubin296@163.com
 # @license : Copyright(C), ipanocloud
-# @file    : sqlutils.py
+# @file    : sql_utils.py
 # @software: PyCharm
 
 import logging

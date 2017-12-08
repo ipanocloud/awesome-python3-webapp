@@ -4,13 +4,13 @@
 # @author  : zhoubin
 # @contact : zhoubin296@163.com
 # @license : Copyright(C), ipanocloud
-# @file    : loadconfig.py
+# @file    : load_config.py
 # @software: PyCharm
 
 import os
 import root
 import logging
-from support.utils import yamlutils
+from support.utils import yaml_utils
 
 
 def get_env_variable(var_name, default=False):
@@ -36,4 +36,4 @@ def load_settings():
     env = get_env_variable('PYTHON_ENV', True)
     logging.info('local env:' + env)
     yaml_file = os.path.join(root.project_dir, 'conf', 'settings_%s.yaml').replace("\\", "/") % env
-    return yamlutils.read_yaml_file(yaml_file)
+    return yaml_utils.read_yaml_file(yaml_file)

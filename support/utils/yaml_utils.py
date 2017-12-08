@@ -4,7 +4,7 @@
 # @author  : zhoubin
 # @contact : zhoubin296@163.com
 # @license : Copyright(C), ipanocloud
-# @file    : yamlutils.py
+# @file    : yaml_utils.py
 # @software: PyCharm
 
 import yaml

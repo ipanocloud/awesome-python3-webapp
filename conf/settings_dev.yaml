@@ -5,4 +5,4 @@ db:
   user: root
   password: root
   database: jt_cloudstitch
-dbUrl: mysql+mysqlconnector://root:root@localhost:3306/jt_cloudstitch
+dbUrl: mysql+mysqlconnector://root:root@localhost:3306/awesome

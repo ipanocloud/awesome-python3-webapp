@@ -7,7 +7,7 @@
 # @file    : persondao.py
 # @software: PyCharm
 
-from dao import Base, Column, String, DBSession, Integer
+from mapping import Base, Column, String, DBSession, Integer
 
 
 class Person(Base):

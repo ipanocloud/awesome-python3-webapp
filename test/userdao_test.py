@@ -4,11 +4,11 @@
 # @author  : zhoubin
 # @contact : zhoubin296@163.com
 # @license : Copyright(C), ipanocloud
-# @file    : userdaotest.py
+# @file    : userdao_test.py
 # @software: PyCharm
 
 import unittest
-from dao.userdao import DBSession, User
+from mapping.model_map import DBSession, Users
 
 
 class UserDaoTest(unittest.TestCase):
@@ -26,7 +26,7 @@ class UserDaoTest(unittest.TestCase):
         """
         print('this is test_add...')
         session = DBSession()
-        new_user = User(id='4', name='gudongyu')
+        new_user = Users(name='zhoubin', email='test@example.com', passwd='1234567890', image='about:blank')
         session.add(new_user)
         session.commit()
         session.close()

@@ -7,15 +7,14 @@
 # @file    : __init__.py
 # @software: PyCharm
 
-from sqlalchemy import Column, String, create_engine,Integer
+from sqlalchemy import Column, String, create_engine, Integer, Boolean, Float, Text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from conf import loadconfig
+from conf import load_config
 
 Base = declarative_base()
 
-yamlconfig = loadconfig.load_settings()
+yamlconfig = load_config.load_settings()
 dbUrl = yamlconfig['dbUrl']
 engine = create_engine(dbUrl)
 DBSession = sessionmaker(bind=engine)
-

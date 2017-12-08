@@ -4,11 +4,11 @@
 # @author  : zhoubin
 # @contact : zhoubin296@163.com
 # @license : Copyright(C), ipanocloud
-# @file    : persondaotest.py
+# @file    : persondao_test.py
 # @software: PyCharm
 
 import unittest
-from dao.persondao import DBSession, Person
+from mapping.persondao import DBSession, Person
 
 
 class PersonDaoTest(unittest.TestCase):
